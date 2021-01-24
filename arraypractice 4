@@ -1,0 +1,54 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class set4 {
+    public static void question4(int n, int k,int m,int g) {
+        int i; int j ;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter first matrix");
+        int arr[][] = new int[n][k];
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < k; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("enter second matrix");
+        int arr2[][] = new int[m][g];
+        for (i = 0; i < g; i++) {
+            for (j = 0; j < m; j++) {
+                arr2[i][j] = sc.nextInt();
+            }
+        }
+        int arr3[][] = new int[n][k];
+        for(int x=0; x<n;x++){
+            for(i=0;i<k;i++){
+                for(j=0; j<n; j++){
+                    arr3[x][i]+=arr[x][j]*arr2[j][i];
+                }
+            }
+        }
+        for(i=0; i<n;i++){
+            for(j=0; j<k;j++){
+                System.out.print(" "+arr3[i][j]);
+            }
+            System.out.println();
+        }
+}
+    public static void main(String[] args) {
+        System.out.println("enter first matrix row");
+        Scanner sc = new Scanner(System.in);
+        int n; int k; int m; int g;
+        n= sc.nextInt();
+        System.out.println("enter first matrix columns");
+        k= sc.nextInt();
+        System.out.println("enter second matrix row");
+        m=sc.nextInt();
+        System.out.println("enter second matrix columns");
+        g= sc.nextInt();
+        if(g!=k||n!=m){
+            System.out.println("Matrices dont match!");
+        }else{
+            question4(n,k,m,g);
+        }
+    }
+}
